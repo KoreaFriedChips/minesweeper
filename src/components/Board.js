@@ -62,8 +62,9 @@ const Board = () => {
                 setGrid(newRevealedBoard.arr);
                 setNonMineCount(newRevealedBoard.newNonMinesCount);
                 // later change to distinguish between win and lose
-                if (newRevealedBoard.newNonMinesCount === 0 || flag) {
+                if (newRevealedBoard.newNonMinesCount === 0 || newRevealedBoard.flag === true) {
                     setGameOver(true);
+                    console.log(gameOver)
                 }
             }
         }// else flag the cell and update
