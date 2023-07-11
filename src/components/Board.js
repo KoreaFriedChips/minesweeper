@@ -67,9 +67,14 @@ const Board = () => {
                     console.log(gameOver)
                 }
             }
-        }// else flag the cell and update
-        else {
+        }
+        // else flag the cell and update
+        else if (!newGrid[x][y].flagged) {
             newGrid[x][y].flagged = true;
+            setGrid(newGrid);
+        }
+        else if (newGrid[x][y].flagged) {
+            newGrid[x][y].flagged = false;
             setGrid(newGrid);
         }
     };
