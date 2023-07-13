@@ -1,4 +1,6 @@
 export const revealed = (arr, x, y, newNonMinesCount, flag, row, col) => {
+    console.log("row: " + row)
+    console.log("col: " + col)
     console.log(arr[x][y]);
 
     if (arr[x][y].value !== 0 && arr[x][y].revealed === false) {
@@ -23,7 +25,7 @@ export const revealed = (arr, x, y, newNonMinesCount, flag, row, col) => {
                             const cur = queue.shift();
                             arr[cur[0]][cur[1]].revealed = true
                             //newNonMinesCount--;
-                            console.log(cur);
+                            console.log("cur: " + cur);
                             for (let r = -1; r <= 1; r++) {
                                 for (let c = -1; c <= 1; c++) {
                                     // change fixed values to slider values
