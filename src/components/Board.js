@@ -5,7 +5,7 @@ import { revealed } from "../util/reveal";
 import Modal from "./Modal";
 import Timer from "./Timer";
 
-const Board = () => {
+const Board = ({ row, col, bomb }) => {
     const [grid, setGrid] = useState([]);
     const [nonMineCount, setNonMineCount] = useState(0);
     const [mineLocations, setMineLocations] = useState([]);
@@ -21,8 +21,8 @@ const Board = () => {
 
     const freshBoard = () => {
         // change fixed values to slider values
-        const newBoard = createBoard(10, 15, 15);
-        setNonMineCount(10 * 15 - 15);
+        const newBoard = createBoard(row, col, bomb);
+        setNonMineCount(row * col - bomb);
         setMineLocations(newBoard.mineLocation);
         setGrid(newBoard.board);
     };
@@ -47,8 +47,7 @@ const Board = () => {
             let cnt = 0;
             for (let i = -1; i <= 1; i++) {
                 for (let j = -1; j <= 1; j++) {
-                    // change fixed values to slider values
-                    if (x + i >= 10 || x + i < 0 || y + j >= 15 || y + j < 0)
+                    if (x + i >= row || x + i < 0 || y + j >= col || y + j < 0)
                         continue;
                     if (newGrid[x + i][y + j].flagged)
                         cnt++;
@@ -131,14 +130,6 @@ const Board = () => {
                         </div>
                     );
                 })}
-            </div>
-            <div>
-                <h1>Instructions</h1>
-                <p>1. Left Click on an empty cell to reveal the cell</p>
-                <p>2. Right Click on an empty cell to flag the cell</p>
-                <p>3. Right Click on a number when the number flags around it corresponds to the value to reveal cells around it</p>
-                <p>4. This is a 10 x 15 grid with 15 bombs (custom grid size/bombs coming soon)</p>
-                <p>5. Have fun!</p>
             </div>
         </div>
     );

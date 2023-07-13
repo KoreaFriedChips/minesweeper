@@ -10,8 +10,6 @@ export default function Timer({ gameOver, sendTime }) {
             timeIntervalId = setInterval(() => {
                 setTime(prevTime => prevTime + 1);
             }, 1000);
-        } else if (gameOver) {
-            setTimerStarted(false)
         }
         return () => {
             clearInterval(timeIntervalId);
