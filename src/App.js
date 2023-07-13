@@ -15,7 +15,7 @@ function App() {
         <p>1. Left Click on an empty cell to reveal the cell</p>
         <p>2. Right Click on an empty cell to flag the cell</p>
         <p>3. Right Click on a number when the number flags around it corresponds to the value to reveal cells around it</p>
-        <p>4. This is a 10 x 15 grid with 15 bombs (custom grid size/bombs coming soon)</p>
+        <p>4. Customize the size of your grid and the number of bombs in it</p>
         <p>5. Have fun!</p>
       </div>
     </div>

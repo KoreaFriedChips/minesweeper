@@ -24,7 +24,7 @@ const Board = () => {
     }
     const getBombSize = () => {
         // divide by the max value of the slider
-        return { backgroundSize: `${(bombs * 100) / 50}% 100%` }
+        return { backgroundSize: `${(bombs * 100) / 90}% 100%` }
     }
 
     // ComponentDidMount
@@ -174,7 +174,7 @@ const Board = () => {
                 <div>
                     <label>Bombs: {bombs}</label>
                     <input
-                        max={50}
+                        max={90}
                         type="range"
                         value={bombs}
                         onChange={(e) => setBombs(e.target.valueAsNumber)}
