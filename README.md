@@ -2,7 +2,7 @@
 
 ## July 11, 2023
 
-Fun minesweeper game that I've been playing a lot. I will to document the progress, challenges, and bug fixes I make along the way. This is a good start to my summer coding projects where I brush up my React and JS skills. Deployment on [vercel](minesweeper-six-sigma.vercel.app)
+Fun minesweeper game that I've been playing a lot. I will to document the progress, challenges, and bug fixes I make along the way. This is a good start to my summer coding projects where I brush up my React and JS skills. Deployment on [vercel](https://minesweeper-six-sigma.vercel.app)
 
 ## Notes
 
@@ -25,8 +25,9 @@ When you click on a cell it may also have the value of 0 since there could be no
 
 
 ## July 13, 2023
-- Implemented sliders in JS to create custom dimensions and bombs for the board. 
+- Implemented sliders with JS input tags to create custom dimensions and bombs for the board. 
 - A refresh button was also required to parse the new values and create the new board.
-- Reviewed and learned CSS to style the sliders and button. 
+- Reviewed and learned CSS to style the sliders and button.
+- Created notifications for winning and losing with react-toastify library
 
 
