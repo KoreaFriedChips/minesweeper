@@ -4,12 +4,16 @@ import Cell from "./Cell";
 import { revealed } from "../util/reveal";
 import Modal from "./Modal";
 import Timer from "./Timer";
+import { toast, ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const Board = () => {
     const [grid, setGrid] = useState([]);
     const [nonMineCount, setNonMineCount] = useState(0);
     const [mineLocations, setMineLocations] = useState([]);
     const [gameOver, setGameOver] = useState(false);
+    const [win, setWin] = useState(false);
     const [row, setRow] = useState(15);
     const [col, setCol] = useState(15);
     const [bombs, setBombs] = useState(20);
@@ -76,11 +80,15 @@ const Board = () => {
                 console.log(newRevealedBoard)
                 setGrid(newRevealedBoard.arr);
                 setNonMineCount(newRevealedBoard.newNonMinesCount);
-                // later change to distinguish between win and lose
-                if (newRevealedBoard.newNonMinesCount === 0 || newRevealedBoard.flag === true) {
+                if (newRevealedBoard.newNonMinesCount === 0) {
                     setGameOver(true);
-                    console.log(gameOver)
+                    toast.success('Congratulations! You won the game!');
                 }
+                else if (newRevealedBoard.flag === true) {
+                    setGameOver(true);
+                    toast.error('Game Over! Mine exploded...');
+                }
+
             }
         }
         // else flag the cell and update
@@ -106,6 +114,7 @@ const Board = () => {
             }
             setGrid(newGrid);
             setGameOver(true);
+            toast.error('Game Over! Mine exploded...');
         } else {
             let newRevealedBoard = revealed(newGrid, x, y, nonMineCount, false, row, col);
             console.log(newRevealedBoard)
@@ -113,12 +122,14 @@ const Board = () => {
             setNonMineCount(newRevealedBoard.newNonMinesCount);
             if (newRevealedBoard.newNonMinesCount === 0) {
                 setGameOver(true);
+                toast.success('Congratulations! You won the game!');
             }
         }
     };
 
     return (
         <div>
+            <ToastContainer position="top-center" />
             {/* <p>Minesweeper</p> */}
             {/* <Timer gameOver={gameOver} /> */}
             <div

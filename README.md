@@ -18,9 +18,15 @@ The challenge lies in strategically analyzing the numbered cells and making logi
 ### BFS
 When you click on a cell it may also have the value of 0 since there could be no bombs around it. This adds no value to the user in finishing the game, so you have to continue to show new cells that aren't 0. To do this, I implemented the Breadth-First-Search (BFS) algorithm to search all the cells around this 0 cell and reveal them until all numbers surround this 0 cell are revealed. I have used this graph theory algorithm many times in competitive coding problems but I never expected that I would use it during this project. It was great to see a practical use of the algorithm.
 
+## Bugs and Fixes
+### Can't remove flags
+- Before: just check if revealed = false, then place a flag and revealed = true
+- Now: check both cases, if revealed = false, then place a flag and revealed = true, if revealed = true, then remove flag and revealed = false
+
+
 ## July 13, 2023
 - Implemented sliders in JS to create custom dimensions and bombs for the board. 
-- A refresh button was also required to parse the new values
-- Reviewed and learned CSS to style the sliders and button  
+- A refresh button was also required to parse the new values and create the new board.
+- Reviewed and learned CSS to style the sliders and button. 
 
 

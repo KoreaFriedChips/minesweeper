@@ -10,12 +10,7 @@ export const revealed = (arr, x, y, newNonMinesCount, flag, row, col) => {
 
         for (let i = -1; i <= 1; i++) {
             for (let j = -1; j <= 1; j++) {
-                if (i === 0 && j === 0 && arr[x][y].value === 0) {
-                    arr[x][y].revealed = true;
-                    newNonMinesCount--;
-                    continue;
-                }
-                if (x + i >= row || x + i < 0 || y + j >= col || y + j < 0 || (i === 0 && j === 0))
+                if (x + i >= row || x + i < 0 || y + j >= col || y + j < 0)
                     continue;
                 if (arr[x + i][y + j].value !== "X" && arr[x + i][y + j].revealed === false) {
                     if (arr[x + i][y + j].value === 0) {
@@ -29,11 +24,9 @@ export const revealed = (arr, x, y, newNonMinesCount, flag, row, col) => {
                         while (queue.length !== 0) {
                             const cur = queue.shift();
                             arr[cur[0]][cur[1]].revealed = true
-                            //newNonMinesCount--;
                             console.log("cur: " + cur);
                             for (let r = -1; r <= 1; r++) {
                                 for (let c = -1; c <= 1; c++) {
-                                    // change fixed values to slider values
                                     if (cur[0] + r >= row || cur[0] + r < 0 || cur[1] + c >= col || cur[1] + c < 0 || arr[cur[0] + r][cur[1] + c].revealed === true)
                                         continue;
                                     if (!visited.has([cur[0] + r, cur[1] + c])) {
