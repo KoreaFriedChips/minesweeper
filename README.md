@@ -30,4 +30,5 @@ When you click on a cell it may also have the value of 0 since there could be no
 - Reviewed and learned CSS to style the sliders and button.
 - Created notifications for winning and losing with react-toastify library
 
+## July 15, 2023
 
