@@ -13,7 +13,6 @@ const Board = () => {
     const [nonMineCount, setNonMineCount] = useState(0);
     const [mineLocations, setMineLocations] = useState([]);
     const [gameOver, setGameOver] = useState(false);
-    const [win, setWin] = useState(false);
     const [row, setRow] = useState(15);
     const [col, setCol] = useState(15);
     const [bombs, setBombs] = useState(20);
