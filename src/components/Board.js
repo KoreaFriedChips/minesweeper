@@ -5,7 +5,6 @@ import { revealed } from "../util/reveal";
 import Modal from "./Modal";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import axios from "axios";
 
 const Board = () => {
   const [grid, setGrid] = useState([]);
@@ -57,12 +56,6 @@ const Board = () => {
   };
 
   const restartGame = () => {
-    sendGameData({
-      row,
-      col,
-      bombs,
-      time,
-    });
     freshBoard();
     setGameOver(false);
   };
