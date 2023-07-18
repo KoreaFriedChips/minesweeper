@@ -3,7 +3,6 @@ import createBoard from "../util/createBoard";
 import Cell from "./Cell";
 import { revealed } from "../util/reveal";
 import Modal from "./Modal";
-import Timer from "./Timer";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
@@ -55,15 +54,6 @@ const Board = () => {
     setGrid(newBoard.board);
     setTime(0);
     setTimerRunning(false);
-  };
-
-  const sendGameData = async (gameData) => {
-    try {
-      await axios.post("/api/store-game", gameData);
-      console.log("Game data stored successfully");
-    } catch (error) {
-      console.error("Error storing game data:", error);
-    }
   };
 
   const restartGame = () => {
